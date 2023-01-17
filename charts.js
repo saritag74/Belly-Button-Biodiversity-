@@ -62,32 +62,32 @@ function buildCharts(sample) {
 
     // Deliverable 1: 3. Create a variable that holds the samples array. 
     console.log(data);
-    var samplesArray = data.sample;
+    var samplesArray = data.samples;
     console.log(samplesArray);
 
     // Deliverable 1: 4. Create a variable that filters the samples for the object with the desired sample number.
     var sampleIdSample = samplesArray.filter(data => data.id == sample);
-    console.log(selectedIdSamples);
+    //console.log(sampleIdSample);
     // Deliverable 3: 1. Create a variable that filters the metadata array for the object with the desired sample number.
     var metadata = data.metadata;
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
     // Deliverable 1: 5. Create a variable that holds the first sample in the array.
     var firstSample = sampleIdSample[0]; 
     // Deliverable 3: 2. Create a variable that holds the first sample in the metadata array.
-   // var  Result = resultArray[0];
+    var  result = resultArray[0];
     // Deliverable 1: 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
-    var ids = Result.otu_ids;
-    var labels = Result.otu_labels.slice(0,10).reverse();
-    var sample = Result.sample_values.slice(0,10).reverse();
+    var ids = firstSample.otu_ids;
+    var labels = firstSample.otu_labels;
+    var sample = firstSample.sample_values;
 
     // Deliverable 3: 3. Create a variable that holds the washing frequency.
-    var wfreqs = Result.wfreqs;
-    console.log(wfreqs)
+    var wfreq = result.wfreq;
+    console.log(wfreq)
 
     // Deliverable 1: 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order 
     // so the otu_ids with the most bacteria are last. 
-     var yticks = ids.map(sampleObj => "OTU " + sampleObj).slice(0,10).reverse();
+     var yticks = otu_ids.map(sampleObj => "OTU " + sampleObj).slice(0,10).reverse();
      console.log(yticks)
 
     // Deliverable 1: 8. Create the trace for the bar chart. 
